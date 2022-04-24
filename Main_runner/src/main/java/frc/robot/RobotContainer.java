@@ -9,6 +9,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Limelight;
 import frc.robot.subsystems.Turret;
 
 import static frc.robot.Constants.controller.*;
@@ -25,6 +26,7 @@ public class RobotContainer {
   public static WPI_TalonSRX turret_motor = new WPI_TalonSRX(1);
   public static XboxController xbox = new XboxController(xbox_port);
   public static Turret turret = new Turret();
+  public static Limelight limelight = new Limelight();
 
   /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {

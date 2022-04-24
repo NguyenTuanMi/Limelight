@@ -5,8 +5,11 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import static frc.robot.RobotContainer.*;
 
 public class Turret extends SubsystemBase {
@@ -16,12 +19,27 @@ public class Turret extends SubsystemBase {
     rotate.configFactoryDefault();
     rotate.setNeutralMode(NeutralMode.Brake);
     rotate.setInverted(false);
+    rotate.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Absolute);
+    rotate.setSelectedSensorPosition(0);
   }
 
   public void spinTurret(double velocity) {
-    rotate.set(velocity);
+    rotate.set(ControlMode.Velocity, velocity);
   }
 
+  public double getYaw() {
+    double position = rotate.getSelectedSensorPosition();
+    SmartDashboard.putNumber("Turret position", position);
+    return position;
+  }
+
+  public double getVelocity() {
+    double velocity = rotate.getSelectedSensorVelocity();
+    SmartDashboard.putNumber("Turret velocity", velocity);
+    return velocity;
+  }
+
+  
   @Override
   public void periodic() {
     // This method will be called once per scheduler run

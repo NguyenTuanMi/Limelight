@@ -48,24 +48,11 @@ public final class Constants {
     }
     public static class Speed{
         public static final double maxSpeed = .8;
-        public static final double maxRotation = .5;
+        public static final double maxRotation = .5; // use for turret as well 
         public static final double minSpeed = .4;
     }
 
     public static class FIELD_DATA {
-        public static final double g = 9.81;                // gravity acceleration in m/s^2
-        public static final double mass = 1;                // mass of the ball, in kilograms
-        public static final double radius = 2;              // radius of the ball in meters
-        public static final double target_height = 12;      // in meters
-        public static final double air_density = 1206.17;   // kg/m^3 using the p-V-T equations
-        public static final double drag_coefficient = .15; // by experimental
-        public static final double cross_section_area = Math.pow(radius,2)*Math.PI;
-        public static final double vt = Math.sqrt(2*mass*g/ 
-        (drag_coefficient*cross_section_area*air_density)); // terminal velocity
-        public static final double tolerance = 0.03;        // tolerance of the velocity of the shooter
-        public static final double sqrt = Math.pow(vt, 2);  // Some constants
-        public static final double alpha = Math.pow(vt,2)/g;
-        
         public static final double target1_x = 10;
         public static final double target1_y = 10;
         public static final double target2_x = 11;
@@ -98,5 +85,6 @@ public final class Constants {
         public static final double turretMaximumInput = 180;
         public static final double turretVelocityTolerance = .01;
         public static final double turretPositionTolerance = .08;
+        public static final int pipeline = 0;
     }
 }

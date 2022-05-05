@@ -13,6 +13,8 @@ public class Limelight {
     return table.getEntry("tv").getDouble(0);
   }
 
+  
+
   public double getX() {
     return table.getEntry("tx").getDouble(0);
   }
